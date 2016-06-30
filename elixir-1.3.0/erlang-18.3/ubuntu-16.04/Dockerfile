@@ -19,4 +19,6 @@ RUN set -xe \
   && unzip -d /usr/local elixir-precompiled.zip \
   && rm elixir-precompiled.zip \
   && apt-get purge -y --auto-remove $buildDeps \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && mix local.hex --force \
+  && mix local.rebar --force
